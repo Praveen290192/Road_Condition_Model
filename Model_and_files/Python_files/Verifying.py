@@ -5,7 +5,7 @@ from keras.preprocessing import image
 
 #Loading the model
 #Location of the Directory Saved Model Directory
-test_model = load_model('D:/images/Model_and_files/Saved_Model/road_2_D_O_C_32.h5')
+test_model = load_model('D:/images/Model_and_files/Saved_Model/road_16C_32C_1D_32N_16B.h5')
 
 
 #Loading image
