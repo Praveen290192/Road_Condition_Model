@@ -13,23 +13,15 @@ test_model = load_model('D:/images/Model_and_files/Saved_Model/road_2_D_O_C_32.h
 test_img ='D:/images/Model_and_files/Extra_images_with_no_label/images4.jpg'
 
 #Image Preprocessing
-test_img = image.load_img(test_img,target_size=(150,150)) 	#loading the image in the test_img by changing it's size, since we trained on 150x150 size images.
-test_img= image.img_to_array(test_img)						#Changing the image to array
-test_img=np.expand_dims(test_img,axis=0)					#Adding extra dimension so as to indicate the batch size
-test_img = test_img/255										#Changing the pixels values between 0 & 1
+test_img = image.load_img(test_img,target_size=(150,150)) 		#loading the image in the test_img by changing it's size, since we trained on 150x150 size images.
+test_img= image.img_to_array(test_img)							#Changing the image to array
+test_img=np.expand_dims(test_img,axis=0)						#Adding extra dimension so as to indicate the batch size
+test_img = test_img/255											#Changing the pixels values between 0 & 1
 
 #Predicting the class
 class_pred = test_model.predict_classes(test_img)
 
 #Printing output
-#Class indices {'clean': 0, 'dirty': 1, 'snow': 2, 'wet': 3}
-if class_pred == 0:								#Checking for Class 0
-	print('Test image is predicted as Clean')	#Printing out the output as Clean Class 
-elif class_pred == 1:							#Checking for Class 1
-	print('Test image is predicted as Dirty')	#Printing out the output as Dirty Class
-elif class_pred == 2:							#Checking for Class 2
-	print ('Test image is predicted as Snow')	#Printing out the output as Snow Class
-else:											#Else 	
-	print('Test image is predicted as Wet')		#Printing out the output as Wet Class
+classes =['clean', 'dirty', 'snow', 'wet'] 						#defining list of classes with there suitable indices
 
-print(class_pred)
+print('Test image is predicted as '+classes=[class_pred[0]]) 	#Printing out the predictions
