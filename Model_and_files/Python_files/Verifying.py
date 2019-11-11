@@ -24,4 +24,4 @@ class_pred = test_model.predict_classes(test_img)
 #Printing output
 classes =['clean', 'dirty', 'snow', 'wet'] 						#defining list of classes with there suitable indices
 
-print('Test image is predicted as '+classes=[class_pred[0]]) 	#Printing out the predictions
+print('Test image is predicted as '+classes[class_pred[0]]) 	#Printing out the predictions
